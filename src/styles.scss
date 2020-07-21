@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+$break2: '(max-width: 755px)';
+$break1: '(max-width: 1199px)';
+html{
+    scroll-behavior: smooth;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{margin: 0; box-sizing: border-box;}
+
+app-root{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    min-width: 1300px;
+}
+
+
+
+h1{
+    @media #{$break2}{
+        font-size: 22px;
+    }
+}

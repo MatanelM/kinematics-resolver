@@ -1,0 +1,90 @@
+.container{
+    min-width: max-content;
+    position: relative;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 1370px;
+}
+
+input[type="radio"], input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.pool{
+    height: max-content;
+    display: flex;
+}
+.req label{
+    width: max-content;
+    padding: 12px 18px;
+    margin: 12px;
+    border-radius: 22px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+#req_position:checked ~ label[for='req_position'], 
+#req_acc:checked ~ label[for='req_acc'],
+#req_starting_position:checked ~ label[for='req_starting_position'],
+#req_velocity:checked ~ label[for='req_velocity'],
+#req_starting_velocity:checked ~ label[for='req_starting_velocity'],
+#req_time:checked ~ label[for='req_time'],
+#val_position:checked ~ label[for='val_position'], 
+#val_acc:checked ~ label[for='val_acc'],
+#val_starting_position:checked ~ label[for='val_starting_position'],
+#val_velocity:checked ~ label[for='val_velocity'],
+#val_time:checked ~ label[for='val_time'],
+#val_starting_velocity:checked ~ label[for='val_starting_velocity']{
+    background: #b9b9b9;
+}
+
+.fields{
+    position: absolute;
+    transform: translate(-120px, 50px);
+    width: max-content;
+}
+.fields input{
+    border: none;
+}
+.fields input::-webkit-outer-spin-button,
+.fields input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.fields input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.fields label{
+    opacity: 0;
+    transition: 0.8s;
+    transform: translate(0px, 0px);
+    position: relative;
+    top: 0;
+    visibility: hidden;
+}
+#val_starting_velocity:checked ~ .fields label[for='starting_velocity'],
+#val_position:checked ~ .fields label[for='position'],
+#val_velocity:checked ~ .fields label[for='velocity'],
+#val_acc:checked ~ .fields label[for='acc'],
+#val_time:checked ~ .fields label[for='time'],
+#val_starting_position:checked ~ .fields label[for='starting_position']{
+    opacity: 1;
+    top: 30px;
+    visibility: visible;
+}
+
+
+.err-message{
+    position: absolute;
+    top: 280px;
+}
+
+.answer{
+    position: absolute;
+    top: 310px;
+}

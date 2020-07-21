@@ -1,0 +1,46 @@
+
+<div class="container">
+  <h1>what do you want to find?</h1>
+  <div class="req pool">
+      <input id="req_acc" type="radio" name="req" >
+      <input id="req_position" type="radio" name="req">
+      <input id="req_starting_position" type="radio" name="req">
+      <input id="req_velocity" type="radio" name="req">
+      <input id="req_starting_velocity" type="radio" name="req">
+      <input id="req_time" type="radio" name="req">
+      <label for="req_acc" (click)="req = 'acceleration'; checkValues()">acceleration</label>
+      <label for="req_position" (click)="req = 'position'; checkValues()">current position</label>
+      <label for="req_starting_position" (click)="req = 'starting_position'; checkValues()">starting position</label>
+      <label for="req_velocity" (click)="req = 'velocity'; checkValues()">current velocity</label>
+      <label for="req_starting_velocity" (click)="req = 'starting_velocity'; checkValues()">starting velocity</label>
+      <label for="req_time" (click)="req = 'time'; checkValues()">time</label>
+  </div>
+  <h1>what values you hold?</h1>
+  <div class="req pool">
+      <input id="val_acc" type="checkbox" name="val">
+      <input id="val_position" type="checkbox" name="val">
+      <input id="val_starting_position" type="checkbox" name="val">
+      <input id="val_velocity" type="checkbox" name="val">
+      <input id="val_starting_velocity" type="checkbox" name="val">
+      <input id="val_time" type="checkbox" name="val">
+      <label for="val_acc" (click)="updateHoldValues('acceleration')">acceleration</label>
+      <label for="val_position" (click)="updateHoldValues('position')">current position</label>
+      <label for="val_starting_position" (click)="updateHoldValues('starting_position')">starting position</label>
+      <label for="val_velocity" (click)="updateHoldValues('velocity')">current velocity</label>
+      <label for="val_starting_velocity" (click)="updateHoldValues('starting_velocity')">starting velocity</label>
+      <label for="val_time" (click)="updateHoldValues('time')">time</label>
+      <div class="fields">
+          <label for="acc"><input id="acc" type="number" step="0.001" placeholder="acceleration" (change)="solveProblem()" [(ngModel)]="acceleration"></label>
+          <label for="position"><input id="position" type="number" step="0.001" placeholder="current position" (change)="solveProblem()" [(ngModel)]="position"></label>
+          <label for="starting_position"><input id="starting_position" type="number" step="0.001" (change)="solveProblem()" placeholder="starting position" [(ngModel)]="starting_position"></label>
+          <label for="velocity"><input id="velocity" type="number" step="0.001" placeholder="current velocity" (change)="solveProblem()" [(ngModel)]="velocity"></label>
+          <label for="starting_velocity"><input id="starting_velocity" type="number" step="0.001" (change)="solveProblem()" placeholder="starting velocity" [(ngModel)]="starting_velocity"></label>
+          <label for="time"><input id="time" type="number" step="0.001" placeholder="time" (change)="solveProblem()" [(ngModel)]="time"></label>
+      </div>
+  </div>
+  <span class="err-message" *ngIf="message != ''" style="color: red">{{ message }}</span>
+  <div *ngIf="answer != ''" class="answer">
+      <div>{{ req }} : <span style="font-weight: 900;">{{ answer }}</span> </div>
+      <div>solved by : {{ solvedBy }}</div>
+  </div>
+</div>
